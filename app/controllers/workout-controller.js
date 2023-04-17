@@ -4,7 +4,9 @@ import {
     get,
     remove,
     update,
-    search 
+    search, 
+    searchByEmail,
+    activitySearch
  } from "../services/workout-service.js"
  
 
@@ -48,6 +50,29 @@ export const findbyId = async(request,response)=>{
       setErrorResponse(error, response);
     }
 }
+
+export const findbyEmail = async(request,response)=>{
+  try {
+    const email = request.params.email;
+    const workout = await searchByEmail(email);
+    setSuccessfullResponse(workout, response);
+  } catch (error) {
+    setErrorResponse(error, response);
+  }
+}
+
+export const findActivitybyEmail = async(request,response)=>{
+  try {
+    const email = request.params.email;
+    const name=request.params.name;
+
+    const workout = await activitySearch(email,name);
+    setSuccessfullResponse(workout, response);
+  } catch (error) {
+    setErrorResponse(error, response);
+  }
+}
+
   
 export const put = async(request,response)=>{
     try {

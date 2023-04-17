@@ -11,8 +11,14 @@ workoutRouter.route('/')
 
 workoutRouter.route('/:id')
                  .put(workoutController.put)
-                 .get(workoutController.index)
+                //  .get(workoutController.findbyId)
                  .delete(workoutController.deletebyid);
+
+workoutRouter.route('/:email')
+                    .get(workoutController.findbyEmail); 
+
+workoutRouter.route('/:email/:name')
+                    .get(workoutController.findActivitybyEmail); 
 
                  
 export default workoutRouter;                 

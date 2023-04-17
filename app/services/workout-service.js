@@ -39,3 +39,13 @@ export const search = async(params)=>{
 
 }
 
+
+export const searchByEmail = async(email) => {
+  const workouts = await Workout.find({ email: email }).exec();
+  return workouts;
+}
+
+export const activitySearch = async(email, name) => {
+  const workouts = await Workout.find({ email: email, name: name }).exec();
+  return workouts;
+}
