@@ -11,7 +11,7 @@ app.use(cors());
 
 route(app);
 
-let uri='mongodb+srv://Nilay:NilayPassword@cluster0.jr8js.mongodb.net/FitnessTracker'
+let uri='mongodb://127.0.0.1/FitnessTracker'
 
 mongoose.connect(uri);
 
